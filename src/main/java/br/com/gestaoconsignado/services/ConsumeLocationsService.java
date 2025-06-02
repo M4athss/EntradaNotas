@@ -23,4 +23,8 @@ public class ConsumeLocationsService {
         return this.consumeLocationRepository.save(location);
     }
 
+    public void deleteById(Long id){
+        consumeLocationRepository.deleteById(id);
+    }
+
 }

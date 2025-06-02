@@ -15,14 +15,16 @@ public class ConsumeLocations {
     @Column(columnDefinition = "varchar(3)")
     private String code;
     private String name;
+    private char active;
 
     public ConsumeLocations() {
     }
 
-    public ConsumeLocations(Long id, String code, String name) {
+    public ConsumeLocations(Long id, String code, String name, char active) {
         this.id = id;
         this.code = code;
         this.name = name;
+        this.active = active;
     }
 
     public Long getId() {
@@ -47,6 +49,14 @@ public class ConsumeLocations {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public char getActive() {
+        return active;
+    }
+
+    public void setActive(char active) {
+        this.active = active;
     }
 
     @Override

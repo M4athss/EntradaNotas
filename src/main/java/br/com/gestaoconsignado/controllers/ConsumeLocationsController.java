@@ -28,6 +28,12 @@ public class ConsumeLocationsController {
         return new ResponseEntity<>(new ConsumeLocationsDTO(insert), HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteLocation(@PathVariable("id") Long id){
+        consumeLocationsService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 
 
 }
