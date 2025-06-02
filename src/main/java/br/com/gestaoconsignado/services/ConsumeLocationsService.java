@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConsumeLocationsService {
@@ -26,5 +27,16 @@ public class ConsumeLocationsService {
     public void deleteById(Long id){
         consumeLocationRepository.deleteById(id);
     }
+
+    public ConsumeLocations updateById(Long id, ConsumeLocationsDTO entity) {
+        ConsumeLocations location = consumeLocationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Localização com ID " + id + " não encontrada"));
+
+        location.setActive(entity.getActive());
+        return consumeLocationRepository.save(location);
+    }
+
+
+
 
 }

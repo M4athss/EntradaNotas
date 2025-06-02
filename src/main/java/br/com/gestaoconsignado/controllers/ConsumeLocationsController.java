@@ -34,6 +34,12 @@ public class ConsumeLocationsController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ConsumeLocationsDTO> alterStatus(@PathVariable Long id, @RequestBody ConsumeLocationsDTO entity){
+        ConsumeLocations input = consumeLocationsService.updateById(id, entity);
+
+        return new ResponseEntity<>(new ConsumeLocationsDTO(input), HttpStatus.ACCEPTED);
+    }
 
 
 }
