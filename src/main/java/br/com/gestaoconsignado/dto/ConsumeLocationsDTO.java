@@ -8,6 +8,7 @@ public class ConsumeLocationsDTO {
     private Long id;
     private String code;
     private String name;
+    private char active;
 
     public ConsumeLocationsDTO() {
     }
@@ -16,6 +17,7 @@ public class ConsumeLocationsDTO {
         this.id = entity.getId();
         this.code = entity.getCode();
         this.name = entity.getName();
+        this.active = entity.getActive();
     }
 
     public Long getId() {
@@ -29,4 +31,9 @@ public class ConsumeLocationsDTO {
     public String getName() {
         return name;
     }
+
+    public char getActive() {
+        return active;
+    }
+
 }
