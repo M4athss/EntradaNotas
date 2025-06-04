@@ -1,4 +1,4 @@
-package br.com.gestaoconsignado.entities;
+package br.com.gestaoconsignado.entity;
 
 import jakarta.persistence.*;
 

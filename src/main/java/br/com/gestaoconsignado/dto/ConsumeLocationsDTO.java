@@ -1,7 +1,6 @@
 package br.com.gestaoconsignado.dto;
 
-import br.com.gestaoconsignado.entities.ConsumeLocations;
-import jakarta.persistence.Column;
+import br.com.gestaoconsignado.entity.ConsumeLocations;
 
 public class ConsumeLocationsDTO {
 

@@ -1,8 +1,9 @@
-package br.com.gestaoconsignado.controllers;
+package br.com.gestaoconsignado.controller;
 
 import br.com.gestaoconsignado.dto.ConsumeLocationsDTO;
-import br.com.gestaoconsignado.entities.ConsumeLocations;
-import br.com.gestaoconsignado.services.ConsumeLocationsService;
+import br.com.gestaoconsignado.entity.ConsumeLocations;
+import br.com.gestaoconsignado.exception.ApiException;
+import br.com.gestaoconsignado.service.ConsumeLocationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,10 +37,14 @@ public class ConsumeLocationsController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<ConsumeLocationsDTO> alterStatus(@PathVariable Long id, @RequestBody ConsumeLocationsDTO request){
-        ConsumeLocations input = consumeLocationsService.updateById(id, request);
+        try {
+            ConsumeLocations input = consumeLocationsService.updateById(id, request);
 
-        return new ResponseEntity<>(new ConsumeLocationsDTO(input), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(new ConsumeLocationsDTO(input), HttpStatus.ACCEPTED);
+
+        } catch (ApiException e){
+            return new ResponseEntity<>(e.getHttpStatus());
+        }
     }
-
 
 }
