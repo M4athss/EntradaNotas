@@ -1,11 +1,11 @@
 package br.com.gestaoconsignado.service;
 
-import br.com.gestaoconsignado.dto.ConsumeLocationsDTO;
-import br.com.gestaoconsignado.entity.ConsumeLocations;
+import br.com.gestaoconsignado.dto.LocationsDTO;
+import br.com.gestaoconsignado.entity.Locations;
 import br.com.gestaoconsignado.exception.LocationEntityIntegrityException;
 import br.com.gestaoconsignado.exception.LocationEntityPersistenceException;
 import br.com.gestaoconsignado.exception.LocationEntityNotFoundException;
-import br.com.gestaoconsignado.repository.ConsumeLocationsRepository;
+import br.com.gestaoconsignado.repository.LocationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -13,17 +13,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ConsumeLocationsService {
+public class LocationsService {
 
     @Autowired
-    private ConsumeLocationsRepository consumeLocationRepository;
+    private LocationsRepository consumeLocationRepository;
 
-    public List<ConsumeLocationsDTO> findAll(){
-        List<ConsumeLocations> result = consumeLocationRepository.findAll();
-        return result.stream().map(ConsumeLocationsDTO::new).toList();
+    public List<LocationsDTO> findAll(){
+        List<Locations> result = consumeLocationRepository.findAll();
+        return result.stream().map(LocationsDTO::new).toList();
     }
 
-    public ConsumeLocations add(ConsumeLocations location){
+    public Locations add(Locations location){
         return this.consumeLocationRepository.save(location);
     }
 
@@ -31,8 +31,8 @@ public class ConsumeLocationsService {
         consumeLocationRepository.deleteById(id);
     }
 
-    public ConsumeLocations updateById(Long id, ConsumeLocationsDTO location) {
-        ConsumeLocations entity = consumeLocationRepository.findById(id)
+    public Locations updateById(Long id, LocationsDTO location) {
+        Locations entity = consumeLocationRepository.findById(id)
                 .orElseThrow(() -> new LocationEntityNotFoundException("Localização com ID " + id + " não encontrada"));
 
         entity.setActive(location.getActive());

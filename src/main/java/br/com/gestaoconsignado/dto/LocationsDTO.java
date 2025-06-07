@@ -1,18 +1,18 @@
 package br.com.gestaoconsignado.dto;
 
-import br.com.gestaoconsignado.entity.ConsumeLocations;
+import br.com.gestaoconsignado.entity.Locations;
 
-public class ConsumeLocationsDTO {
+public class LocationsDTO {
 
     private Long id;
     private String code;
     private String name;
     private char active;
 
-    public ConsumeLocationsDTO() {
+    public LocationsDTO() {
     }
 
-    public ConsumeLocationsDTO(ConsumeLocations entity) {
+    public LocationsDTO(Locations entity) {
         this.id = entity.getId();
         this.code = entity.getCode();
         this.name = entity.getName();

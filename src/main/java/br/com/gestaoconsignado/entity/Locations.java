@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "TBLOCATIONS")
-public class ConsumeLocations {
+public class Locations {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +17,10 @@ public class ConsumeLocations {
     private String name;
     private char active;
 
-    public ConsumeLocations() {
+    public Locations() {
     }
 
-    public ConsumeLocations(Long id, String code, String name, char active) {
+    public Locations(Long id, String code, String name, char active) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -63,7 +63,7 @@ public class ConsumeLocations {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ConsumeLocations that = (ConsumeLocations) o;
+        Locations that = (Locations) o;
         return Objects.equals(id, that.id);
     }
 
