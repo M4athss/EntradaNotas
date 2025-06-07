@@ -15,12 +15,12 @@ public class Locations {
     @Column(columnDefinition = "varchar(3)")
     private String code;
     private String name;
-    private char active;
+    private boolean active;
 
     public Locations() {
     }
 
-    public Locations(Long id, String code, String name, char active) {
+    public Locations(Long id, String code, String name, boolean active) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -51,11 +51,11 @@ public class Locations {
         this.name = name;
     }
 
-    public char getActive() {
+    public boolean getActive() {
         return active;
     }
 
-    public void setActive(char active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 

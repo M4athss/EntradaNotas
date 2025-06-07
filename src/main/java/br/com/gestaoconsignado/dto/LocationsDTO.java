@@ -7,7 +7,7 @@ public class LocationsDTO {
     private Long id;
     private String code;
     private String name;
-    private char active;
+    private boolean active;
 
     public LocationsDTO() {
     }
@@ -31,7 +31,7 @@ public class LocationsDTO {
         return name;
     }
 
-    public char getActive() {
+    public boolean getActive() {
         return active;
     }
 

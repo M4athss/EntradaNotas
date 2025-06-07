@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LocationsRepository extends JpaRepository<Locations, Long> {
 
+    boolean existsByCode(String code);
+
+    boolean existsById(Long id);
 }

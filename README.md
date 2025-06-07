@@ -12,7 +12,15 @@
     
     3. Cadastrar local de consumo
 
+### Implementacao do CRUD em TBLOCATIONS
+    1. Buscar todos os locais
+    2. Cadastrar Local
+    3. Atualizar
+    4. Excluir
 
+    Final: Condicoes para excecoes. 
+
+---
 
 ### Diagrama utilizado.
 

@@ -12,11 +12,11 @@ INSERT INTO TBSUPPLIERS (cnpj, name, common_name, cep, country, state) VALUES ('
 INSERT INTO TBSUPPLIERS (cnpj, name, common_name, cep, country, state) VALUES ('55443322000122', 'Epsilon Tecnologia Ltda.', 'Epsilon', '90619900', 'Brasil', 'RS');
 
 
-INSERT INTO TBLOCATIONS (code, name, active) VALUES ('CDC', 'Centro de Distribuição Central', 'T');
-INSERT INTO TBLOCATIONS (code, name, active) VALUES ('SP1', 'Setor de Preparação - Zona Sul SP', 'T');
-INSERT INTO TBLOCATIONS (code, name, active) VALUES ('RJ1', 'Setor de Expedição - RJ Norte', 'T');
-INSERT INTO TBLOCATIONS (code, name, active) VALUES ('EST', 'Estoque Geral - Matriz', 'T');
-INSERT INTO TBLOCATIONS (code, name, active) VALUES ('REC', 'Recebimento de Mercadorias - Filial BH', 'T');
+INSERT INTO TBLOCATIONS (code, name, active) VALUES ('CDC', 'Centro de Distribuição Central', true);
+INSERT INTO TBLOCATIONS (code, name, active) VALUES ('SP1', 'Setor de Preparação - Zona Sul SP', true);
+INSERT INTO TBLOCATIONS (code, name, active) VALUES ('RJ1', 'Setor de Expedição - RJ Norte', true);
+INSERT INTO TBLOCATIONS (code, name, active) VALUES ('EST', 'Estoque Geral - Matriz', true);
+INSERT INTO TBLOCATIONS (code, name, active) VALUES ('REC', 'Recebimento de Mercadorias - Filial BH', true);
 
 
 INSERT INTO TBINVOICES (note_number, emission_date, id_suppliers, total) VALUES (1001, '2025-05-01', 1, 12500.00);
