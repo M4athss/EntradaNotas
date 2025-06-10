@@ -1,5 +1,6 @@
 package br.com.gestaoconsignado.controller;
 
+import br.com.gestaoconsignado.dto.ExceptionDTO;
 import br.com.gestaoconsignado.dto.LocationsDTO;
 import br.com.gestaoconsignado.entity.Locations;
 import br.com.gestaoconsignado.exception.ApiException;
@@ -24,9 +25,14 @@ public class LocationsController {
     }
 
     @PostMapping(produces = "application/json")
-    public ResponseEntity<LocationsDTO> insert(@RequestBody Locations entity){
-        Locations insert = locationsService.add(entity);
-        return new ResponseEntity<>(new LocationsDTO(insert), HttpStatus.CREATED);
+    public ResponseEntity<?> insert(@RequestBody Locations entity){
+        try {
+            locationsService.add(entity);
+            return new ResponseEntity<>(new LocationsDTO(entity), HttpStatus.CREATED);
+        } catch (ApiException e) {
+            ExceptionDTO exception = new ExceptionDTO(e.getHttpStatus().value(), e.getMessage());
+            return new ResponseEntity<>(exception, e.getHttpStatus());
+        }
     }
 
     @DeleteMapping("/{id}")
