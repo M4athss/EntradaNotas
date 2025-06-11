@@ -2,7 +2,10 @@ package br.com.gestaoconsignado.service;
 
 import br.com.gestaoconsignado.dto.LocationsDTO;
 import br.com.gestaoconsignado.entity.Locations;
-import br.com.gestaoconsignado.exception.*;
+import br.com.gestaoconsignado.exception.custom.LocationEntityDuplicateException;
+import br.com.gestaoconsignado.exception.custom.LocationEntityIntegrityException;
+import br.com.gestaoconsignado.exception.custom.LocationEntityNotFoundException;
+import br.com.gestaoconsignado.exception.custom.LocationEntityPersistenceException;
 import br.com.gestaoconsignado.repository.LocationsRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

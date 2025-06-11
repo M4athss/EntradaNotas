@@ -1,28 +1,25 @@
-package br.com.gestaoconsignado.dto;
+package br.com.gestaoconsignado.exception.model;
 
 import org.springframework.http.HttpStatus;
 
-import java.time.Clock;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public class ExceptionDTO {
-    private final int httpStatus;
+    private final HttpStatus httpStatus;
     private final String error;
     private final LocalDate date;
     private final LocalTime time;
 
 
-    public ExceptionDTO(int httpStatus, String error) {
+    public ExceptionDTO(HttpStatus httpStatus, String error) {
         this.httpStatus = httpStatus;
         this.error = error;
         this.date = LocalDate.now();
         this.time = LocalTime.now();
     }
 
-    public int getHttpStatus() {
+    public HttpStatus getHttpStatus() {
         return httpStatus;
     }
 

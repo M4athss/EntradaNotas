@@ -1,4 +1,4 @@
-package br.com.gestaoconsignado.exception;
+package br.com.gestaoconsignado.exception.custom;
 
 import org.springframework.http.HttpStatus;
 
