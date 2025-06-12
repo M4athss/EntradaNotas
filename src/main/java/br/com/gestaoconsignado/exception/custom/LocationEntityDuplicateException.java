@@ -7,4 +7,6 @@ public class LocationEntityDuplicateException extends ApiException {
     public LocationEntityDuplicateException(String message) {
         super(message, HttpStatus.CONFLICT);
     }
+
+
 }

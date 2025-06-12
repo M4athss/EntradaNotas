@@ -8,4 +8,8 @@ public class LocationEntityPersistenceException extends ApiException{
         super(message, cause, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    public LocationEntityPersistenceException(String message){
+        super(message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }

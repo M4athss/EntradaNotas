@@ -26,18 +26,20 @@ public class LocationsService {
     }
 
     public void add(Locations location) {
-
         try {
             if (location.getId() != null || consumeLocationRepository.existsByCode(location.getCode())) {
                 throw new LocationEntityDuplicateException("Duplicate ID or CODE!");
+            } else if (location.getCode() == null) {
+                throw new LocationEntityPersistenceException("Code is empty.");
             } else {
                 consumeLocationRepository.save(location);
             }
-
         } catch (LocationEntityDuplicateException e) {
-            throw new LocationEntityDuplicateException("Duplicate ID or CODE!");
+            throw new LocationEntityDuplicateException(e.getMessage());
+        } catch (LocationEntityPersistenceException e) {
+            throw new LocationEntityIntegrityException(e.getMessage(), e);
         } catch (Exception e) {
-            throw new LocationEntityIntegrityException("Insert new location erro! method add locations.", e);
+            throw new LocationEntityPersistenceException("Error to save in database", e);
         }
     }
 
@@ -58,10 +60,8 @@ public class LocationsService {
         try {
             return consumeLocationRepository.save(entity);
         } catch (DataIntegrityViolationException e) {
-            e.printStackTrace();
             throw new LocationEntityIntegrityException("Dados invalidos", e);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new LocationEntityPersistenceException("Erro ao salvar Location", e);
         }
 
