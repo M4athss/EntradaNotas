@@ -5,14 +5,15 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class ExceptionDTO {
+public class LocationExceptionDTO {
     private final HttpStatus httpStatus;
     private final String error;
     private final LocalDate date;
     private final LocalTime time;
+    private final String pack = "Location";
 
 
-    public ExceptionDTO(HttpStatus httpStatus, String error) {
+    public LocationExceptionDTO(HttpStatus httpStatus, String error) {
         this.httpStatus = httpStatus;
         this.error = error;
         this.date = LocalDate.now();
@@ -33,5 +34,9 @@ public class ExceptionDTO {
 
     public LocalTime getTime() {
         return time;
+    }
+
+    public String getPack() {
+        return pack;
     }
 }
